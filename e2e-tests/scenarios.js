@@ -25,6 +25,20 @@ describe('my app', function() {
 
   });
 
+  describe('topic', function() {
+
+    beforeEach(function() {
+      browser.get('index.html#/topic');
+    });
+
+
+    it('should render topic when user navigates to /topic', function() {
+      expect(element.all(by.css('[ng-view] p')).first().getText()).
+        toMatch(/Discuss this important topic/);
+    });
+
+  });
+
 
   describe('view2', function() {
 
