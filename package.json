@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "lean-timer",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "A timer for lean coffees",
+  "repository": "https://github.com/Stratouklos/lean-timer",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
