@@ -4,7 +4,7 @@ angular.module('myApp.topic', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/topic', {
-    templateUrl: 'topic.topic.html',
+    templateUrl: 'topic/topic.html',
     controller: 'topicCtrl'
   });
 }])
