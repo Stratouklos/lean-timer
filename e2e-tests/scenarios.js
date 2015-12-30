@@ -37,8 +37,13 @@ describe('my app', function() {
         toMatch(/Discuss this important topic/);
     });
 
-  });
 
+    it('should have a start button', function() {
+      expect(element.all(by.css('[ng-view] #start_button')).first().getText()).
+      toMatch(/Start/);
+    });
+
+  });
 
   describe('view2', function() {
 
