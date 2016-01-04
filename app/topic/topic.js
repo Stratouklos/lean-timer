@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.topic', ['ngRoute'])
+angular.module('myApp.topic', ['ngRoute', 'timer'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/topic', {
@@ -9,6 +9,17 @@ angular.module('myApp.topic', ['ngRoute'])
   });
 }])
 
-.controller('topicCtrl', [function() {
+.controller('topicCtrl', ['$scope', '$window', function($scope, $window) {
+  $scope.timerRunning = false;
 
+  $scope.startTimer = function (){
+    $scope.$broadcast('timer-start');
+    $scope.timerRunning = true;
+  };
+
+
+  $scope.$on('timer-stopped', function (event, data){
+    $window.alert("Time's out!");
+    console.log('Timer Stopped - data = ', data);
+  });
 }]);
