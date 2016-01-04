@@ -2,13 +2,36 @@
 
 describe('myApp.topic module', function() {
 
+    var scope, createController;
+
     beforeEach(module('myApp.topic'));
+    beforeEach(inject(function ($rootScope, $controller) {
+        scope = $rootScope.$new();
+        spyOn(scope, '$broadcast');
 
-    describe('view2 controller', function(){
+        createController = function() {
+            return $controller('topicCtrl', {
+                '$scope': scope
+            });
+        };
+        var topicCtrl = createController();
 
-        it('should ....', inject(function($controller) {
-            var topicCtrl = $controller('topicCtrl');
+    }));
+
+
+    describe('topic controller', function(){
+
+        it('should be defined and timer should be stopped', inject(function() {
+            var topicCtrl = createController();
             expect(topicCtrl).toBeDefined();
+            expect(scope.timerRunning).toBe(false);
+        }));
+
+        it('should be able to start the timer', inject(function() {
+            var topicCtrl = createController();
+            scope.startTimer();
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
+            expect(scope.timerRunning).toBe(true);
         }));
 
     });
