@@ -13,8 +13,10 @@ angular.module('myApp.topic', ['ngRoute', 'timer'])
   $scope.timerRunning = false;
 
   $scope.startTimer = function (){
-    $scope.$broadcast('timer-start');
-    $scope.timerRunning = true;
+    if ($scope.timerRunning === false) {
+      $scope.$broadcast('timer-start');
+      $scope.timerRunning = true;
+    }
   };
 
 
