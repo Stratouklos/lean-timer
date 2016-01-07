@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Stratouklos/lean-timer.svg?branch=master)](https://travis-ci.org/Stratouklos/lean-timer)
+
 # Lean-timer — a lean coffee timer as dreamed up by Jeff and implemented by Stratos.
 
 This project has been seeded using [angular-seed](https://github.com/angular/angular-seed).
