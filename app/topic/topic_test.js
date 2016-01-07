@@ -34,5 +34,13 @@ describe('myApp.topic module', function() {
             expect(scope.timerRunning).toBe(true);
         }));
 
+        it('if the timer is running it should not start again', inject(function() {
+            var topicCtrl = createController();
+            scope.startTimer();
+            scope.startTimer();
+            expect(scope.$broadcast.calls.count()).toBe(1);
+            expect(scope.timerRunning).toBe(true);
+        }));
+
     });
 });
