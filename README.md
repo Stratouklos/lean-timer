@@ -228,3 +228,13 @@ Everything else should be omitted.
 [Travis CI][travis] is a continuous integration service, which can monitor GitHub for new commits
 to your repository and execute scripts such as building the app or running tests. The project contains
 a Travis configuration file, `.travis.yml`, which will cause Travis to run your tests when you push to GitHub.
+
+## TODO
+
+### MVP
+
+Basic functionality is completed but it looks like crap
+
+Next steps design UI and move the end timer from alerts
+Add sounds
+Visual queues on how long the discussion has left
