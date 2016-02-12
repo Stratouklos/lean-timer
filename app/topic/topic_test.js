@@ -35,13 +35,22 @@ describe('myApp.topic module', function() {
         }));
 
         it('should be able to switch to a new topic whenever the previous is depleted', inject(function() {
-            var topicCtrl = createController();
+            createController();
             scope.startTopic();
             scope.startTopic();
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-reset');
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 600);
             expect(scope.discussing).toBe(true);
         }));
+
+        it('should declare a continuation vote when the timer expires', inject(function() {
+            createController();
+            scope.startTopic();
+            scope.$emit('timer-stopped');
+            expect(scope.discussing).toBe(false);
+            expect(scope.voteInProgress).toBe(true);
+        }));
+
 
     });
 });
