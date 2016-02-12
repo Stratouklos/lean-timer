@@ -1,9 +1,8 @@
 <p>Discuss this important topic</p>
 
 <p id="countdown">
-    <timer id="leanTimer" countdown="600" autostart="false" interval="1000">{{mminutes}}:{{sseconds}}</timer>
+    <timer id="leanTimer" countdown="600" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
 </p>
 
-<button id="start_button" ng-click="startTimer()">Start</button>
-<button id="new_topic_button" ng-click="startTimer()">New Topic</button>
-<button id="continue_topic" ng-click="continue()">Continue</button>
+<button id="start_button" ng-click="startTopic()">Start a new topic</button>
+<button id="continue" ng-show="showVote" ng-click="continueDiscussing()">Continue on topic</button>
