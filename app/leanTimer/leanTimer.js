@@ -1,27 +1,27 @@
 'use strict';
 
-angular.module('myApp.topic', ['ngRoute', 'timer'])
+angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/topic', {
-    templateUrl: 'topic/topic.html',
+  $routeProvider.when('/lean-coffe', {
+    templateUrl: 'leanTimer.html',
     controller: 'topicCtrl'
   });
 }])
 
 
-.controller('topicCtrl', ['$scope', '$window', function($scope, $window) {
+.controller('leanTimerController', ['$scope', '$window', function($scope, $window) {
   $scope.discussing = false;
   $scope.voteInProgress = false;
 
   $scope.startTopic = function (){
     if ($scope.discussing || $scope.voteInProgress) {
-      console.log('Interrupting current topic');
+      console.log('Interrupting current discussion');
       $scope.$broadcast('timer-reset');
       $scope.$broadcast('timer-set-countdown-seconds', 600);
     }
     $scope.$broadcast('timer-start');
-    console.log('Starting a new topic');
+    console.log('Starting a new discussion');
 
     $scope.discussing = true;
     $scope.numberOfVotes = 0;
@@ -40,7 +40,7 @@ angular.module('myApp.topic', ['ngRoute', 'timer'])
   });
 
   $scope.continueDiscussing = function () {
-    console.log('Continuing on the same topic for the last ', $scope.numberOfVotes);
+    console.log('Continuing the discussion for ', $scope.numberOfVotes);
     $scope.numberOfVotes++;
     if ($scope.numberOfVotes < 2) {
       $scope.$broadcast('timer-set-countdown-seconds', 300);

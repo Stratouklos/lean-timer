@@ -1,16 +1,16 @@
 'use strict';
 
-describe('myApp.topic module', function() {
+describe('myApp leanTimer module', function() {
 
     var scope, createController;
 
-    beforeEach(module('myApp.topic'));
+    beforeEach(module('myApp.leanTimer'));
     beforeEach(inject(function ($rootScope, $controller) {
         scope = $rootScope.$new();
         spyOn(scope, '$broadcast');
 
         createController = function() {
-            return $controller('topicCtrl', {
+            return $controller('leanTimerController', {
                 '$scope': scope
             });
         };
@@ -19,7 +19,7 @@ describe('myApp.topic module', function() {
     }));
 
 
-    describe('topic controller', function(){
+    describe('lean-timer controller', function(){
 
         it('should be defined and timer should be stopped', inject(function() {
             var topicCtrl = createController();
@@ -34,7 +34,7 @@ describe('myApp.topic module', function() {
             expect(scope.discussing).toBe(true);
         }));
 
-        it('should be able to switch to a new topic whenever the previous is depleted', inject(function() {
+        it('should be able to switch to a new discussion whenever the previous is depleted', inject(function() {
             createController();
             scope.startTopic();
             scope.startTopic();
