@@ -11,44 +11,34 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
 
 .controller('leanTimerController', ['$scope', '$window', function($scope, $window) {
-  $scope.discussing = false;
-  $scope.voteInProgress = false;
+  $scope.voting = false;
 
-  $scope.startTopic = function (){
-    if ($scope.discussing || $scope.voteInProgress) {
-      console.log('Interrupting current discussion');
-      $scope.$broadcast('timer-reset');
+    $scope.startTopic = function (){
+      console.log('Starting a new discussion');
       $scope.$broadcast('timer-set-countdown-seconds', 600);
-    }
-    $scope.$broadcast('timer-start');
-    console.log('Starting a new discussion');
+      $scope.$broadcast('timer-start');
 
-    $scope.discussing = true;
-    $scope.numberOfVotes = 0;
-    $scope.voteInProgress = false;
-    $scope.$digest();
+      $scope.voting = false;
+      $scope.$digest();
 
   };
 
   $scope.$on('timer-stopped', function (event, data){
     $window.alert("Time's out! Please vote to continue or not");
     console.log('Timer Stopped - data = ', data);
-    $scope.numberOfVotes++;
-    $scope.discussing = false;
-    $scope.voteInProgress = true;
+    $scope.voting = true;
     $scope.$digest();
   });
 
-  $scope.continueDiscussing = function () {
+  $scope.continueDiscussing = function (full) {
     console.log('Continuing the discussion for ', $scope.numberOfVotes);
-    $scope.numberOfVotes++;
-    if ($scope.numberOfVotes < 2) {
+    if (full) {
       $scope.$broadcast('timer-set-countdown-seconds', 300);
     } else {
       $scope.$broadcast('timer-set-countdown-seconds', 120);
     }
     $scope.$broadcast('timer-start');
-    $scope.voteInProgress = false;
+    $scope.voting = false;
     $scope.$digest();
   };
 
