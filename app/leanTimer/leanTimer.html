@@ -1,11 +1,33 @@
-<div data-ng-model="voting">
-    <p>{{message}}</p>
-    <p id="countdown">
-        <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
-    </p>
-    <button id="start_button" ng-show="!voting" ng-click="startTopic()">Start on a new topic</button>
+<div class="timer-page" data-ng-model="voting">
+    <h1 class="header">Welcome to Lean Coffee</h1>
+    <img class="coffee-image img-fluid" src="images/coffee.png">
 
-    <button id="interesting_button" ng-show="voting" ng-click="continueDiscussing(true)">Yes, this is fascinating!</button>
-    <button id="ambivalent_button" ng-show="voting" ng-click="continueDiscussing(false)">Hmm, just a bit more...</button>
-    <button id="new_button" ng-show="voting" ng-click="startTopic()">Let's change the subject</button>
+    <div class="message">
+        <p>{{message}}</p>
+    </div>
+    <hr class="vertical-line">
+    <div class="timer">
+        <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
+    </div>
+    <p>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+    </p>
+
+    <div class="buttons">
+        <button class="btn btn-primary btn-lg btn-primary" id="start_button" ng-show="!voting" ng-click="startTopic()">
+            Start on a new topic
+        </button>
+
+        <button class="btn btn-primary btn-lg btn-success" id="interesting_button" ng-show="voting"
+                ng-click="continueDiscussing(true)">Yes, this is fascinating!
+        </button>
+        <button class="btn btn-primary btn-lg btn-warning" id="ambivalent_button" ng-show="voting"
+                ng-click="continueDiscussing(false)">Hmm, just a bit more...
+        </button>
+        <button class="btn btn-primary btn-lg btn-danger" id="new_button" ng-show="voting" ng-click="startTopic()">Let's
+            change the subject
+        </button>
+    </div>
 </div>
