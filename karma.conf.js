@@ -9,7 +9,6 @@ module.exports = function(config){
         'app/bower_components/angular-mocks/angular-mocks.js',
         'app/bower_components/angular-timer/dist/angular-timer.js',
         'app/components/**/*.js',
-        'app/view*/**/*.js',
         'app/leanTimer/**/*.js'
     ],
 
