@@ -17,7 +17,7 @@ describe('my app', function () {
 
 
         it('should render lean-timer when user navigates to /lean-timer', function () {
-            expect(element.all(by.id('welcome-message')).first().getText()).
+            expect(element.all(by.id('welcome-message')).getText()).
                 toMatch(/Pick a topic and discuss/);
         });
 
