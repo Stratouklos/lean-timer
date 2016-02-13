@@ -2,13 +2,29 @@
     <h1 class="header">Welcome to Lean Coffee</h1>
     <img class="coffee-image img-fluid" src="images/coffee.png">
 
-    <div class="message">
-        <p>{{message}}</p>
+    <div ng-show="!discussing && !voting" class="alert alert-info" role="alert">
+        Pick a topic and discuss.
     </div>
+
+    <div ng-show="voting" class="alert alert-success" role="alert">
+        That was great! Want more of the same?
+    </div>
+
+    <div ng-show="discussing" class="alert alert-warning" role="alert">
+        Remember to stay on topic!
+    </div>
+
+
     <hr class="vertical-line">
+
     <div class="timer">
-        <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
+        <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}
+            <!--<progress id="progressBar" class="progress progress-striped" value="{{progressBar}}" max="100">-->
+                <!--{{progressBar}}%-->
+            <!--</progress>-->
+        </timer>
     </div>
+
     <p>
         &nbsp;
         &nbsp;

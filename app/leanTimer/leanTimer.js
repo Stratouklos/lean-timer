@@ -19,12 +19,21 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
         };
 
         $scope.$on('timer-stopped', function () {
-            $scope.message = 'That was great! Want more of the same?';
             $scope.voting = true;
+            $scope.discussing = false;
             $scope.$digest();
         });
 
+        $scope.$on('timer-tick', function (event, data) {
+            console.log( data);
+
+        });
+
+
+
         $scope.continueDiscussing = function (full) {
+            $scope.$broadcast('timer-reset');
+
             if (full) {
                 $scope.$broadcast('timer-set-countdown-seconds', 240);
             } else {
@@ -35,9 +44,8 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
         var startTimer = function () {
             $scope.$broadcast('timer-start');
-            $scope.message = 'Remember to stay on topic';
+            $scope.discussing = true;
             $scope.voting = false;
-            $scope.$digest();
         }
 
     }]);
