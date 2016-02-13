@@ -1,8 +1,11 @@
-<p>Discuss this important topic</p>
+<div data-ng-model="voting">
+    <p>{{message}}</p>
+    <p id="countdown">
+        <timer id="leanTimer" countdown="600" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
+    </p>
+    <button id="start_button" ng-show="!voting" ng-click="startTopic()">Start on a new topic</button>
 
-<p id="countdown">
-    <timer id="leanTimer" countdown="600" autostart="false" interval="10">{{mminutes}}:{{sseconds}}</timer>
-</p>
-
-<button id="start_button" ng-click="startTopic()">Start a new topic</button>
-<button id="continue" ng-show="voting" ng-click="continueDiscussing()">Continue on topic</button>
+    <button id="interesting_button" ng-show="voting" ng-click="continueDiscussing(true)">Yes, this is fascinating!</button>
+    <button id="ambivalent_button" ng-show="voting" ng-click="continueDiscussing(false)">Hmm, just a bit more...</button>
+    <button id="new_button" ng-show="voting" ng-click="startTopic()">Let's change the subject</button>
+</div>

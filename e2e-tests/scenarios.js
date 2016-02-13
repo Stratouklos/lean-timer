@@ -18,7 +18,7 @@ describe('my app', function() {
 
     it('should render lean-timer when user navigates to /lean-timer', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/Discuss this important topic/);
+        toMatch(/Pick a topic and discuss/);
     });
 
 
