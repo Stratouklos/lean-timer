@@ -10,7 +10,7 @@ module.exports = function(config){
         'app/bower_components/angular-timer/dist/angular-timer.js',
         'app/components/**/*.js',
         'app/view*/**/*.js',
-        'app/topic/**/*.js'
+        'app/leanTimer/**/*.js'
     ],
 
     autoWatch : true,
