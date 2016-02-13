@@ -10,15 +10,15 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 }])
 
 
-.controller('leanTimerController', ['$scope', '$window', function($scope, $window) {
+.controller('leanTimerController', ['$scope', function($scope) {
     $scope.message = 'Pick a topic and discuss';
 
   $scope.startTopic = function (){
-    $scope.$broadcast('timer-set-countdown-seconds', 600);
+    $scope.$broadcast('timer-set-countdown-seconds', 480);
     startTimer();
   };
 
-  $scope.$on('timer-stopped', function (event, data){
+  $scope.$on('timer-stopped', function (){
     $scope.message = 'That was great! Want more of the same?';
     $scope.voting = true;
     $scope.$digest();
@@ -26,7 +26,7 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
   $scope.continueDiscussing = function (full) {
     if (full) {
-      $scope.$broadcast('timer-set-countdown-seconds', 300);
+      $scope.$broadcast('timer-set-countdown-seconds', 240);
     } else {
       $scope.$broadcast('timer-set-countdown-seconds', 120);
     }
