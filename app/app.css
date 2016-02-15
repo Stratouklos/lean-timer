@@ -1,6 +1,7 @@
 /* app css stylesheet */
 
 .timer-page {
+  max-width: 50em;
   text-align: center;
 }
 
@@ -9,8 +10,9 @@
 }
 
 .coffee-image {
+  padding-top: 10px;
   margin: 0 auto;
-  max-width: 10%;
+  max-width: 50%;
   height: auto;
 }
 
@@ -24,6 +26,12 @@
 }
 
 .vertical-line{
-  background-color: brown;
+  background-color: #792e2c;
   text-align: center;
+  height: 10px;
+}
+
+.credits {
+  text-align: center;
+  font-size: small;
 }
