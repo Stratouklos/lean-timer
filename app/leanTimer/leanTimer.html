@@ -7,7 +7,7 @@
         <h1 class="header">Welcome to Lean Coffee</h1>
     </div>
 
-    <div class="row">
+    <div class="row messages">
         <div id="welcome-message" ng-show="!discussing && !voting" class="alert alert-info" role="alert">
             Pick a topic and discuss.
         </div>
@@ -21,10 +21,7 @@
         </div>
     </div>
 
-    <div class="row">
-    <hr class="vertical-line">
-    </div>
-
+    <hr class="row vertical-line">
 
     <div class="timer row">
         <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}
@@ -33,6 +30,8 @@
             <!--</progress>-->
         </timer>
     </div>
+
+    <hr class="row vertical-line">
 
     <div class="buttons row">
         <button class="btn btn-primary btn-lg btn-primary lean-btn" id="start_button" ng-show="!voting" ng-click="startTopic()">
