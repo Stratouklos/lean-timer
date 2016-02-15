@@ -1,55 +1,58 @@
 <div class="container timer-page" data-ng-model="voting">
-    <img class="coffee-image img-fluid" src="images/logo.png">
-    <h1 class="header">Welcome to Lean Coffee</h1>
-
-    <div ng-show="!discussing && !voting" class="alert alert-info" role="alert">
-        Pick a topic and discuss.
+    <div class="row">
+        <img class="coffee-image img-fluid " src="images/logo.png">
     </div>
 
-    <div ng-show="voting" class="alert alert-success" role="alert">
-        That was great! Want more of the same?
+    <div class="row">
+        <h1 class="header">Welcome to Lean Coffee</h1>
     </div>
 
-    <div ng-show="discussing" class="alert alert-warning" role="alert">
-        Remember to stay on topic!
+    <div class="row">
+        <div id="welcome-message" ng-show="!discussing && !voting" class="alert alert-info" role="alert">
+            Pick a topic and discuss.
+        </div>
+
+        <div ng-show="voting" class="alert alert-success" role="alert">
+            That was great! Want more of the same?
+        </div>
+
+        <div ng-show="discussing" class="alert alert-warning" role="alert">
+            Remember to stay on topic!
+        </div>
     </div>
 
-
+    <div class="row">
     <hr class="vertical-line">
+    </div>
 
-    <div class="timer">
+
+    <div class="timer row">
         <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{mminutes}}:{{sseconds}}
             <!--<progress id="progressBar" class="progress progress-striped" value="{{progressBar}}" max="100">-->
-                <!--{{progressBar}}%-->
+            <!--{{progressBar}}%-->
             <!--</progress>-->
         </timer>
     </div>
 
-    <p>
-        &nbsp;
-        &nbsp;
-        &nbsp;
-    </p>
-
-    <div class="buttons">
-        <button class="btn btn-primary btn-lg btn-primary" id="start_button" ng-show="!voting" ng-click="startTopic()">
+    <div class="buttons row">
+        <button class="btn btn-primary btn-lg btn-primary lean-btn" id="start_button" ng-show="!voting" ng-click="startTopic()">
             Start on a new topic
         </button>
 
-        <button class="btn btn-primary btn-lg btn-success" id="interesting_button" ng-show="voting"
+        <button class="btn btn-primary btn-lg btn-success lean-btn" id="interesting_button" ng-show="voting"
                 ng-click="continueDiscussing(true)">Yes, this is fascinating!
         </button>
-        <button class="btn btn-primary btn-lg btn-warning" id="ambivalent_button" ng-show="voting"
+        <button class="btn btn-primary btn-lg btn-warning lean-btn" id="ambivalent_button" ng-show="voting"
                 ng-click="continueDiscussing(false)">Hmm, just a bit more...
         </button>
-        <button class="btn btn-primary btn-lg btn-danger" id="new_button" ng-show="voting" ng-click="startTopic()">Let's
+        <button class="btn btn-primary btn-lg btn-danger lean-btn" id="new_button" ng-show="voting" ng-click="startTopic()">Let's
             change the subject
         </button>
     </div>
 
+    </div>
 
-</div>
-<div class="credits">
+    <div class="credits row">
     Hot Drink graphic by <a href="http://www.freepik.com/">Freepik</a> from <a
         href="http://www.flaticon.com/">Flaticon</a> is licensed under <a
         href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a
