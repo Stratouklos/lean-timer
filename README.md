@@ -57,37 +57,6 @@ npm start
 
 Now browse to the app at `http://localhost:8000/app/index.html`.
 
-
-## Directory Layout (TODO update)
-
-```
-app/                    --> all of the source files for the application
-  app.css               --> default stylesheet
-  components/           --> all app specific modules
-    version/              --> version related components
-      version.js                 --> version module declaration and basic "version" value service
-      version_test.js            --> "version" value service tests
-      version-directive.js       --> custom directive that returns the current app version
-      version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
-      interpolate-filter_test.js --> interpolate filter tests
-  view1/                --> the view1 view template and logic
-    view1.html            --> the partial template
-    view1.js              --> the controller logic
-    view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
-    view2.html            --> the partial template
-    view2.js              --> the controller logic
-    view2_test.js         --> tests of the controller
-  app.js                --> main application module
-  index.html            --> app layout file (the main html template file of the app)
-  index-async.html      --> just like index.html, but loads js files asynchronously
-karma.conf.js         --> config file for running unit tests with Karma
-e2e-tests/            --> end-to-end tests
-  protractor-conf.js    --> Protractor config file
-  scenarios.js          --> end-to-end scenarios to be run by Protractor
-```
-
 ## Testing
 
 There are two kinds of tests in the lean-timer application: Unit tests and End to End tests.
@@ -175,22 +144,6 @@ bower update
 ```
 
 This will find the latest versions that match the version ranges specified in the `bower.json` file.
-
-
-## Loading Angular Asynchronously
-
-The project supports loading the framework and application scripts asynchronously.  The
-special `index-async.html` is designed to support this style of loading.  For it to work you must
-inject a piece of Angular JavaScript into the HTML page.  The project has a predefined script to help
-do this.
-
-```
-npm run update-index-async
-```
-
-This will copy the contents of the `angular-loader.js` library file into the `index-async.html` page.
-You can run this every time you update the version of Angular that you are using.
-
 
 ### Running the App during Development
 
