@@ -2,9 +2,9 @@
 
 angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
-    .config(['$routeProvider', function ($scr, $routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/lean-timer', {
-            templateUrl: $sce.trustAsResourceUrl('https://cdn.rawgit.com/Stratouklos/lean-timer/gh-pages/leanTimer.html'),
+            templateUrl: 'leanTimer.html',
             controller: 'leanTimerController'
         });
     }])
