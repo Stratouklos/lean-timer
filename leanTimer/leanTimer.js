@@ -4,7 +4,7 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/lean-timer', {
-            templateUrl: '/leanTimer.html',
+            templateUrl: 'https://cdn.rawgit.com/Stratouklos/lean-timer/gh-pages/leanTimer.html',
             controller: 'leanTimerController'
         });
     }])
