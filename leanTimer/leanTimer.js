@@ -4,7 +4,7 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/lean-timer', {
-            templateUrl: 'leanTimer/leanTimer.html',
+            templateUrl: '/leanTimer.html',
             controller: 'leanTimerController'
         });
     }])
