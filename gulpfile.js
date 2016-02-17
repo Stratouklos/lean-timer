@@ -8,6 +8,7 @@ var lazypipe = require('lazypipe');
 var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
+var print = require('gulp-print');
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -154,14 +155,22 @@ gulp.task('client:build', ['html', 'styles'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
 
-  return gulp.src(paths.views.main)
-    .pipe($.useref({searchPath: [yeoman.app, '.tmp']}))
+  return gulp.src(paths.views.main, { debug: true})
+      .pipe(print())
+    .pipe($.useref({
+          searchPath: [ yeoman.app, '.tmp'],
+          transformPath: function(filePath) {
+              var path = filePath.replace('/bower_components','/app/bower_components');
+              console.log(path);
+              return path;
+          }
+      }))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.minifyCss({cache: true}))
+    .pipe($.minifyCss({cache: false}))
     .pipe(cssFilter.restore())
     .pipe($.rev())
     .pipe($.revReplace())

@@ -1,0 +1,59 @@
+<div class="container timer-page" data-ng-model="voting">
+    <div class="row">
+        <img class="coffee-image img-fluid " src="images/logo.png">
+    </div>
+
+    <div class="row">
+        <h1 class="header">Welcome to Lean Coffee</h1>
+    </div>
+
+    <div class="row messages">
+        <div id="welcome-message" ng-show="!discussing && !voting" class="alert alert-info" role="alert">
+            Pick a topic and discuss.
+        </div>
+
+        <div ng-show="voting" class="alert alert-success" role="alert">
+            That was great! Want more of the same?
+        </div>
+
+        <div ng-show="discussing" class="alert alert-warning" role="alert">
+            Remember to stay on topic!
+        </div>
+    </div>
+
+    <hr class="row vertical-line">
+
+    <div class="timer row">
+        <timer id="leanTimer" countdown="480" autostart="false" interval="10">{{minutes}}:{{sseconds}}
+            <!--<progress id="progressBar" class="progress progress-striped" value="{{progressBar}}" max="100">-->
+            <!--{{progressBar}}%-->
+            <!--</progress>-->
+        </timer>
+    </div>
+
+    <hr class="row vertical-line">
+
+    <div class="buttons row">
+        <button class="btn btn-primary btn-lg btn-primary lean-btn" id="start_button" ng-show="!voting" ng-click="startTopic()">
+            Start on a new topic
+        </button>
+
+        <button class="btn btn-primary btn-lg btn-success lean-btn" id="interesting_button" ng-show="voting"
+                ng-click="continueDiscussing(true)">Yes, this is fascinating!
+        </button>
+        <button class="btn btn-primary btn-lg btn-warning lean-btn" id="ambivalent_button" ng-show="voting"
+                ng-click="continueDiscussing(false)">Hmm, just a bit more...
+        </button>
+        <button class="btn btn-primary btn-lg btn-danger lean-btn" id="new_button" ng-show="voting" ng-click="startTopic()">Let's
+            change the subject
+        </button>
+    </div>
+
+</div>
+
+<div class="credits row">
+    Hot Drink graphic by <a href="http://www.freepik.com/">Freepik</a> from <a
+        href="http://www.flaticon.com/">Flaticon</a> is licensed under <a
+        href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a
+        href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
+</div>
