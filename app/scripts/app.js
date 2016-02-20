@@ -1,15 +1,10 @@
 'use strict';
 
-angular
-    .module('leanTimerApp', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/lean-timer', {
-            templateUrl: 'views/leanTimer.html',
-            controller: 'leanTimerController'
-        })
-        .otherwise({
-            redirectTo: '/lean-timer'
-        });
-
+// Declare app level module which depends on views, and components
+angular.module('myApp', [
+    'ngRoute',
+    'myApp.leanTimer'
+]).
+    config(['$routeProvider', function($routeProvider) {
+        $routeProvider.otherwise({redirectTo: '/lean-timer'});
     }]);

@@ -1,6 +1,13 @@
 'use strict';
 
-angular.module('leanTimerApp', ['ngRoute', 'timer'])
+angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
+
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/lean-timer', {
+            templateUrl: 'views/leanTimer.html',
+            controller: 'leanTimerController'
+        });
+    }])
 
     .controller('leanTimerController', ['$scope', function ($scope) {
         var startTimer = function () {
@@ -8,8 +15,6 @@ angular.module('leanTimerApp', ['ngRoute', 'timer'])
             $scope.discussing = true;
             $scope.voting = false;
         };
-
-        $scope.message = 'Pick a topic and discuss';
 
         $scope.startTopic = function () {
             $scope.$broadcast('timer-set-countdown-seconds', 480);
