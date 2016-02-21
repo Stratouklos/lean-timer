@@ -176,6 +176,11 @@ gulp.task('html', function () {
         .pipe(gulp.dest(yeoman.dist + '/views'));
 });
 
+gulp.task('copy:favicon', function () {
+   return gulp.src(yeoman.app + '/favicon.ico')
+       .pipe(gulp.dest(yeoman.dist))
+});
+
 gulp.task('images', function () {
     return gulp.src(yeoman.app + '/images/**/*')
         .pipe($.cache($.imagemin({
@@ -197,7 +202,7 @@ gulp.task('copy:fonts', function () {
 });
 
 gulp.task('build', ['clean:dist'], function () {
-    runSequence(['images', 'copy:extras', 'copy:fonts', 'client:build']);
+    runSequence(['images', 'copy:extras', 'copy:fonts', 'copy:favicon', 'client:build']);
 });
 
 
