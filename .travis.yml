@@ -2,6 +2,6 @@ sudo: false
 language: node_js
 node_js:
   - '0.12'
-revrbefore_script:
+before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
