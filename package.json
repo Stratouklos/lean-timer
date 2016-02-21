@@ -2,6 +2,7 @@
   "name": "leantimer",
   "private": true,
   "devDependencies": {
+    "grunt": "^0.4.5",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "2.3.1",
     "gulp-cache": "^0.2.10",
@@ -24,11 +25,10 @@
     "jshint-stylish": "^1.0.0",
     "karma": "^0.13.21",
     "karma-bower": "^1.0.1",
+    "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "*",
-    "karma-phantomjs-launcher": "*",
     "lazypipe": "^0.2.4",
     "open": "0.0.5",
-    "phantomjs-prebuilt": "^2.1.4",
     "rimraf": "^2.4.0",
     "run-sequence": "^1.1.1",
     "wiredep": "^2.2.2"
