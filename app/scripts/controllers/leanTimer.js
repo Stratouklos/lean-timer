@@ -4,14 +4,17 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/lean-timer', {
-            templateUrl: 'leanTimer/leanTimer.html',
+            templateUrl: 'views/leanTimer.html',
             controller: 'leanTimerController'
         });
     }])
 
-
     .controller('leanTimerController', ['$scope', function ($scope) {
-        $scope.message = 'Pick a topic and discuss';
+        var startTimer = function () {
+            $scope.$broadcast('timer-start');
+            $scope.discussing = true;
+            $scope.voting = false;
+        };
 
         $scope.startTopic = function () {
             $scope.$broadcast('timer-set-countdown-seconds', 480);
@@ -25,11 +28,9 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
         });
 
         $scope.$on('timer-tick', function (event, data) {
-            console.log( data);
+            console.log(data);
 
         });
-
-
 
         $scope.continueDiscussing = function (full) {
             $scope.$broadcast('timer-reset');
@@ -41,11 +42,5 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
             }
             startTimer();
         };
-
-        var startTimer = function () {
-            $scope.$broadcast('timer-start');
-            $scope.discussing = true;
-            $scope.voting = false;
-        }
 
     }]);
