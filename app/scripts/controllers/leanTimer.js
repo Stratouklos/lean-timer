@@ -47,8 +47,10 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
             startTimer();
         };
 
-        $scope.projectorMode = function () {
-            $scope.projector = !projector;
+        $scope.toggleSound = function () {
+            $scope.tickSound.muting = !$scope.tickSound.muting;
+            $scope.dingSound.muting = !$scope.dingSound.muting;
+
         }
 
     }]);
