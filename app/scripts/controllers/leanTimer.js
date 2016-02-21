@@ -43,4 +43,8 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer'])
             startTimer();
         };
 
+        $scope.projectorMode = function () {
+            $scope.projector = !projector;
+        }
+
     }]);
