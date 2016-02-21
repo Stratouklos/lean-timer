@@ -9,6 +9,7 @@ var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
 var Server = require('karma').Server;
+var ghPages = require('gulp-gh-pages');
 
 var yeoman = {
     app: require('./bower.json').appPath || 'app',
@@ -167,8 +168,6 @@ gulp.task('client:build', ['html', 'styles'], function () {
         .pipe(cssFilter)
         .pipe($.minifyCss({cache: false}))
         .pipe(cssFilter.restore())
-        .pipe($.rev())
-        .pipe($.revReplace())
         .pipe(gulp.dest(yeoman.dist));
 });
 
@@ -199,6 +198,12 @@ gulp.task('copy:fonts', function () {
 
 gulp.task('build', ['clean:dist'], function () {
     runSequence(['images', 'copy:extras', 'copy:fonts', 'client:build']);
+});
+
+
+gulp.task('deploy', function() {
+    return gulp.src('./dist/**/*')
+        .pipe(ghPages());
 });
 
 gulp.task('default', ['build']);
