@@ -29,6 +29,7 @@ module.exports = function(config) {
     'app/bower_components/angular-mocks/angular-mocks.js',
     "app/bower_components/angular-route/angular-route.js",
     "app/bower_components/angular-loader/angular-loader.js",
+    "app/bower_components/angular-audio/app/angular.audio.js",
     "app/bower_components/momentjs/moment.js",
     "app/bower_components/humanize-duration/humanize-duration.js",
     "app/bower_components/angular-timer/dist/angular-timer.js",
@@ -54,12 +55,12 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      "PhantomJS"
+      "Chrome"
     ],
 
     // Which plugins to enable
     plugins: [
-      "karma-phantomjs-launcher",
+      'karma-chrome-launcher',
       "karma-jasmine"
     ],
 
