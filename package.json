@@ -24,11 +24,10 @@
     "jshint-stylish": "^1.0.0",
     "karma": "^0.13.21",
     "karma-bower": "^1.0.1",
+    "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "*",
-    "karma-phantomjs-launcher": "*",
     "lazypipe": "^0.2.4",
     "open": "0.0.5",
-    "phantomjs-prebuilt": "^2.1.4",
     "rimraf": "^2.4.0",
     "run-sequence": "^1.1.1",
     "wiredep": "^2.2.2"
@@ -37,6 +36,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update"
+
   }
 }
