@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/Stratouklos/lean-timer.svg?branch=master)](https://travis-ci.org/Stratouklos/lean-timer)[![devDependency Status](https://david-dm.org/Stratouklos/lean-timer/dev-status.svg)](https://david-dm.org/Stratouklos/lean-timer#info=devDependencies)
+[![Build Status](https://travis-ci.org/Stratouklos/lean-timer.svg?branch=master)](https://travis-ci.org/Stratouklos/lean-timer)[![devDependency Status](https://david-dm.org/Stratouklos/lean-timer/dev-status.svg)](https://david-dm.org/Stratouklos/lean-timer#info=devDependencies)[![Coverage Status](https://coveralls.io/repos/github/Stratouklos/lean-timer/badge.svg?branch=master)](https://coveralls.io/github/Stratouklos/lean-timer?branch=master)
+
 
 # Lean-timer — a lean coffee timer as dreamed up by Jeff and implemented by Stratos.
 
