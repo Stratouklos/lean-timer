@@ -75,7 +75,7 @@ module.exports = function(config) {
       "karma-jasmine"
     ],
 
-    reporters: ['progress', 'coverage', 'coveralls'],
+    reporters: ['progress', 'coverage'],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

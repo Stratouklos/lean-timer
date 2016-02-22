@@ -10,6 +10,8 @@ var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
 var Server = require('karma').Server;
 var ghPages = require('gulp-gh-pages');
+var coveralls = require('gulp-coveralls');
+
 
 var yeoman = {
     app: require('./bower.json').appPath || 'app',
@@ -123,6 +125,11 @@ gulp.task('serve:prod', function () {
         livereload: true,
         port: 9000
     });
+});
+
+gulp.task('coveralls', function () {
+    return gulp.src('coverage/**/lcov.info')
+        .pipe(coveralls());
 });
 
 gulp.task('test', function (done) {
