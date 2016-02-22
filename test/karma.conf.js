@@ -7,6 +7,11 @@ module.exports = function(config) {
   'use strict';
 
   config.set({
+
+    preprocessors: {
+      'app/scripts/**/*.js': ['coverage']
+    },
+
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
@@ -36,7 +41,7 @@ module.exports = function(config) {
     "app/bower_components/bootstrap/dist/js/bootstrap.js",
     "app/scripts/app.js",
     "app/scripts/controllers/leanTimer.js",
-    "test/spec/controllers/leanTimer.js"
+    "test/spec/**/*.js"
     ],
 
     // list of files / patterns to exclude
@@ -61,6 +66,7 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-firefox-launcher',
+      'karma-coverage',
       "karma-jasmine"
     ],
 
