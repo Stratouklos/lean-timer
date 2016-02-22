@@ -8,6 +8,11 @@ module.exports = function(config) {
 
   config.set({
 
+    coverageReporter: {
+      type : 'lcov',
+      dir : 'coverage/'
+    },
+
     preprocessors: {
       'app/scripts/**/*.js': ['coverage']
     },
@@ -69,6 +74,8 @@ module.exports = function(config) {
       'karma-coverage',
       "karma-jasmine"
     ],
+
+    reporters: ['progress', 'coverage'],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

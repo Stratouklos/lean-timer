@@ -2,13 +2,14 @@ sudo: false
 language: node_js
 node_js:
   - '0.12'
-
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm install -g bower grunt-cli
   - bower install
-  - sleep 1 # give server time to start
-
+  - sleep 1
 script:
   - node_modules/.bin/karma start test/karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
+env:
+  matrix:
+    secure: b/WbGgWFRtgwaPynWBOZGH8lZkTbmro1kT/kXYZLpELW+KvQNwsKTDpADlIgreRtOw33M7m2WN6rhAWJK5ZucP0/vwPAApwUOXt6r9jM0CUWw7zogWH3Xis+morp7guH67GfRskFGbc1/kmeZiXtF4AbmOhkUDk2uGlaI330j3+ssYKFs4ZZZdqbnwIWA41H1uoiWAnw6NsseFXkSI+kvxnRNQ6WOfq2fXANLfO7fUD+XBrqT++9SY2pPPoVekkKkKm1f7jLjyZoKwpeGfdtYe9pvmgxP2XM+B08p9bBjHew6yYm7N8RXDHa/bow3/qrdEcR2NgvO3/fS9HTA/k9JVrQr6wpv3XawxIfdoTqL49tgk7n+oLcy5r0gESjunyYFnJ2lFRNiGtiGN6M8t3FCUsjD6trIe2fSxjIii5MjxdD+FWu7QdUfpZxl5PzSzTdxSrc+sx6b3u0kZUHJtSyeV7VsWJ8neJsvlGlNcZC947telA5jzdpW6QgAlKUvPlfHLmaGB95Rdc6CbSvF52elCCYuSC7baFTcJ0IIGaRvy2vz9jeYmIWF6ideznq7L53dhcj/vALqtycVTmJwyyNxg87ProkQm4ndmG0LG7BqR7Q0rze/PrCPDYDTOvHEurLAeeHehEsLkHRgB81sEVH1LrQtWfFctzRY6fXyjhRJlQ=
