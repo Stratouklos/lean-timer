@@ -10,6 +10,11 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
     }])
 
     .controller('leanTimerController', ['$scope', 'ngAudio', function ($scope, ngAudio) {
+        //State
+        $scope.discussing = false;
+        $scope.voting = false;
+
+        //Sounds
         $scope.tickSound = ngAudio.load("sounds/tick.ogg");
         $scope.tickSound.setVolume(0.33);
         $scope.dingSound = ngAudio.load('sounds/ding.ogg');
@@ -29,28 +34,23 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
             $scope.dingSound.play();
             $scope.voting = true;
             $scope.discussing = false;
-            $scope.$digest();
-        });
-
-        $scope.$on('timer-tick', function (event, data) {
-            $scope.tickSound.play();
+            //$scope.$digest();
         });
 
         $scope.continueDiscussing = function (full) {
             $scope.$broadcast('timer-reset');
-
-            if (full) {
-                $scope.$broadcast('timer-set-countdown-seconds', 240);
-            } else {
-                $scope.$broadcast('timer-set-countdown-seconds', 120);
-            }
+            $scope.$broadcast('timer-set-countdown-seconds', full ? 240 : 120);
             startTimer();
         };
+
 
         $scope.toggleSound = function () {
             $scope.tickSound.muting = !$scope.tickSound.muting;
             $scope.dingSound.muting = !$scope.dingSound.muting;
+        };
 
-        }
+        $scope.$on('timer-tick', function () {
+            $scope.tickSound.play();
+        });
 
     }]);
