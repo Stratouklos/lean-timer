@@ -50,12 +50,12 @@
         </button>
     </div>
 
-    <div class="buttons row ">
-        <button data-ng-model="projector" class="btn btn-secondary btn-sm" id="projector_button" ng-click="projector = !projector">
-            Projector Mode
+    <div class="settings-buttons row ">
+        <button data-ng-model="projector" class="btn btn-secondary btn-sm lean-btn settings-btn" id="projector_button" ng-click="projector = !projector">
+            {{projector ? "Desktop Mode" : "Projector Mode"}}
         </button>
-        <button class="btn btn-secondary btn-sm" id="mute_button" ng-click="toggleSound()">
-            Toggle Sounds
+        <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="mute_button" ng-click="toggleSound()">
+            {{tickSound.muting ? "Sounds off" : "Sounds on"}}
         </button>
     </div>
 
