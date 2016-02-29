@@ -11,6 +11,7 @@ var runSequence = require('run-sequence');
 var Server = require('karma').Server;
 var ghPages = require('gulp-gh-pages');
 var coveralls = require('gulp-coveralls');
+var gulpFilter = require('gulp-filter');
 
 
 var yeoman = {
@@ -158,8 +159,8 @@ gulp.task('clean:dist', function (cb) {
 });
 
 gulp.task('client:build', ['html', 'styles'], function () {
-    var jsFilter = $.filter('**/*.js');
-    var cssFilter = $.filter('**/*.css');
+    var jsFilter = gulpFilter('**/*.js', {restore: true});
+    var cssFilter = gulpFilter('**/*.css', {restore: true});
 
     return gulp.src(paths.views.main)
         .pipe($.useref({
@@ -171,10 +172,10 @@ gulp.task('client:build', ['html', 'styles'], function () {
         .pipe(jsFilter)
         .pipe($.ngAnnotate())
         .pipe($.uglify())
-        .pipe(jsFilter.restore())
+        .pipe(jsFilter.restore)
         .pipe(cssFilter)
         .pipe($.minifyCss({cache: false}))
-        .pipe(cssFilter.restore())
+        .pipe(cssFilter.restore)
         .pipe(gulp.dest(yeoman.dist));
 });
 
