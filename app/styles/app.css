@@ -1,3 +1,12 @@
+.projector {
+    background-color: #623027;
+    color: white !important;
+}
+
+.desktop {
+    background-color: #fffafa;
+}
+
 .timer-page {
     max-width: 50em;
     text-align: center;
@@ -17,7 +26,7 @@
 .logo {
     font-size: 5em;
     font-weight: 800;
-    color: #792e2c;
+    color: #623027;
     font-family: 'Boogaloo', cursive;
 }
 
@@ -44,12 +53,8 @@
 }
 
 .vertical-line {
-    background-color: #792e2c;
+    background-color: #623027;
     height: 0.33em;
 }
 
-.projector {
-    background-color: #792e2c;
-    color: white;
-}
 
