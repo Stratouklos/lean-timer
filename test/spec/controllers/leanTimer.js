@@ -36,10 +36,26 @@ describe('myApp leanTimer module', function () {
             expect(scope.discussing).toBe(true);
         }));
 
+        it('should be able to change the topic timer duration', inject(function () {
+            scope.timers.topic = 100;
+            scope.startTopic();
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 100);
+            expect(scope.discussing).toBe(true);
+        }));
+
         it('should declare a continuation vote when the timer expires', inject(function () {
             scope.$emit('timer-stopped');
             expect(scope.voting).toBe(true);
             expect(scope.discussing).toBe(false);
+        }));
+
+        it('should be able to change the full continuation timer duration', inject(function () {
+            scope.timers.fullUp = 500;
+            scope.continueDiscussing(true);
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 500);
+            expect(scope.discussing).toBe(true);
         }));
 
         it('should start a four minute countdown on up votes', inject(function () {
@@ -50,6 +66,14 @@ describe('myApp leanTimer module', function () {
         it('should start a two minute countdown on middle votes', inject(function () {
             scope.continueDiscussing();
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 120);
+        }));
+
+        it('should be able to change the half continuation timer duration', inject(function () {
+            scope.timers.halfUp = 50;
+            scope.continueDiscussing();
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 50);
+            expect(scope.discussing).toBe(true);
         }));
 
         it('should load the ticking and dinging sounds', inject(function () {

@@ -10,6 +10,12 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
     }])
 
     .controller('leanTimerController', ['$scope', 'ngAudio', function ($scope, ngAudio) {
+        $scope.timers = {
+            topic : 480,
+            fullUp : 240,
+            halfUp : 120
+        };
+
         //State
         $scope.discussing = false;
         $scope.voting = false;
@@ -26,7 +32,7 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
         };
 
         $scope.startTopic = function () {
-            $scope.$broadcast('timer-set-countdown-seconds', 480);
+            $scope.$broadcast('timer-set-countdown-seconds', $scope.timers.topic);
             startTimer();
         };
 
@@ -39,7 +45,7 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
 
         $scope.continueDiscussing = function (full) {
             $scope.$broadcast('timer-reset');
-            $scope.$broadcast('timer-set-countdown-seconds', full ? 240 : 120);
+            $scope.$broadcast('timer-set-countdown-seconds', full ? $scope.timers.fullUp : $scope.timers.halfUp);
             startTimer();
         };
 
