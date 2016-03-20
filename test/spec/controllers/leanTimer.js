@@ -11,7 +11,7 @@ describe('myApp leanTimer module', function () {
         soundSpy = jasmine.createSpy('playSpy');
         audioSpy = spyOn(ngAudio, 'load').and.returnValue({
                 setVolume: function() {},
-                play: soundSpy,
+                play: soundSpy
             }
         );
 
@@ -37,10 +37,10 @@ describe('myApp leanTimer module', function () {
         }));
 
         it('should be able to change the topic timer duration', inject(function () {
-            scope.timers.topic = 100;
+            scope.timers.topicMinutes = 2;
             scope.startTopic();
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
-            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 100);
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 120);
             expect(scope.discussing).toBe(true);
         }));
 
@@ -51,10 +51,10 @@ describe('myApp leanTimer module', function () {
         }));
 
         it('should be able to change the full continuation timer duration', inject(function () {
-            scope.timers.fullUp = 500;
+            scope.timers.fullFollowUpMinutes = 5;
             scope.continueDiscussing(true);
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
-            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 500);
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 300);
             expect(scope.discussing).toBe(true);
         }));
 
@@ -69,10 +69,10 @@ describe('myApp leanTimer module', function () {
         }));
 
         it('should be able to change the half continuation timer duration', inject(function () {
-            scope.timers.halfUp = 50;
+            scope.timers.halfFollowUpMinutes = 1;
             scope.continueDiscussing();
             expect(scope.$broadcast).toHaveBeenCalledWith('timer-start');
-            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 50);
+            expect(scope.$broadcast).toHaveBeenCalledWith('timer-set-countdown-seconds', 60);
             expect(scope.discussing).toBe(true);
         }));
 
