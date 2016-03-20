@@ -25,7 +25,7 @@
     <hr class="row vertical-line">
 
     <div class="timer row">
-        <timer id="leanTimer" countdown="timers.topic" autostart="false" interval="1000">{{minutes}}:{{sseconds}}
+        <timer id="leanTimer" countdown="timers.topicMinutes * 60" autostart="false" interval="1000">{{minutes}}:{{sseconds}}
             <!--<progress id="progressBar" class="progress progress-striped" value="{{progressBar}}" max="100">-->
             <!--{{progressBar}}%-->
             <!--</progress>-->
@@ -57,7 +57,11 @@
         <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="mute_button" ng-click="toggleSound()">
             {{tickSound.muting ? "Sounds off" : "Sounds on"}}
         </button>
+
+        <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="settingsPopover">
+            Settings
+        </button>
+
+
     </div>
-
-
 </div>
