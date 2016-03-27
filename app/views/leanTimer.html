@@ -51,17 +51,53 @@
     </div>
 
     <div class="settings-buttons row ">
-        <button data-ng-model="projector" class="btn btn-secondary btn-sm lean-btn settings-btn" id="projector_button" ng-click="projector = !projector">
-            {{projector ? "Desktop Mode" : "Projector Mode"}}
+        <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="settingsButton" data-toggle="modal"
+                data-target="#settings">
+            <i class="fa fa-cogs fa-lg"></i> Settings
         </button>
-        <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="mute_button" ng-click="toggleSound()">
-            {{tickSound.muting ? "Sounds off" : "Sounds on"}}
-        </button>
-
-        <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="settingsPopover">
-            Settings
-        </button>
-
 
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settings modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="settingsLabel">Settings</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Timers </p>
+                    <div class="col-md-6 col-md-offset-3 settings-input input-group">
+                        <span class="input-group-addon ">New topic</span>
+                        <input type="number" class="form-control " ng-model="timers.topicMinutes"
+                               placeholder="{{timers.topicMinutes}}" aria-describedby="topic duration in minutes">
+                        <span class="input-group-addon">minutes</span>
+                     </div>
+                    <div class="col-md-6 col-md-offset-3 settings-input input-group">
+                        <span class="input-group-addon">More time</span>
+                        <input type="number" class="form-control" placeholder="{{timers.fullFollowUpMinutes}}"
+                               aria-describedby="follow up duration in minutes">
+                        <span class="input-group-addon">minutes</span>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3 settings-input input-group">
+                        <span class="input-group-addon">A bit more</span>
+                        <input type="number" class="form-control" placeholder="{{timers.halfFollowUpMinutes}}"
+                               aria-describedby="half follow up duration in minutes">
+                        <span class="input-group-addon">minutes</span>
+                    </div>
+                    <button data-ng-model="projector" class="btn btn-secondary btn-sm lean-btn settings-btn" id="projector_button" ng-click="projector = !projector">
+                        {{projector ? "Desktop Mode" : "Projector Mode"}}
+                    </button>
+                    <button class="btn btn-secondary btn-sm lean-btn settings-btn" id="mute_button" ng-click="toggleSound()">
+                        {{tickSound.muting ? "Sounds off" : "Sounds on"}}
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal" ng-click="updateTimer()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

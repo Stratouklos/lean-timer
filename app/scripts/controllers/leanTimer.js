@@ -50,6 +50,12 @@ angular.module('myApp.leanTimer', ['ngRoute', 'timer', 'ngAudio'])
             startTimer();
         };
 
+        $scope.updateTimer = function () {
+            if ($scope.discussing === false && $scope.voting === false) {
+                $scope.$broadcast('timer-set-countdown-seconds', $scope.timers.topicMinutes * 60);
+            }
+        };
+
 
         $scope.toggleSound = function () {
             $scope.tickSound.muting = !$scope.tickSound.muting;
